@@ -1,5 +1,5 @@
-const websiteNameInput = document.getElementById("websiteName");
-const websiteURLInput = document.getElementById("websiteURL");
+const websiteNameElement = document.getElementById("websiteName");
+const websiteURLElement = document.getElementById("websiteURL");
 const bookmarksList = document.getElementById("bookmarksList");
 
 document.getElementById("bookmarkForm").addEventListener("submit", (event) => {
@@ -10,8 +10,8 @@ document.getElementById("bookmarkForm").addEventListener("submit", (event) => {
 displayBookmarks(); 
 
 function addBookmark() {
-    const websiteName = websiteNameInput.value.trim();
-    const websiteURL = websiteURLInput.value.trim();
+    const websiteName = websiteNameElement.value.trim();
+    const websiteURL = websiteURLElement.value.trim();
 
     if (!websiteName || !websiteURL) {
         alert("Please fill in the form");
@@ -22,8 +22,8 @@ function addBookmark() {
 
     saveBookmark(bookmark);
 
-    websiteNameInput.value = "";
-    websiteURLInput.value = "";
+    websiteNameElement.value = "";
+    websiteURLElement.value = "";
 
     displayBookmarks();
 }
@@ -70,8 +70,8 @@ function editBookmark(index) {
     const bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
     const bookmark = bookmarks[index];
 
-    websiteNameInput.value = bookmark.name;
-    websiteURLInput.value = bookmark.url;
+    websiteNameElement.value = bookmark.name;
+    websiteURLElement.value = bookmark.url;
 
     deleteBookmark(index); 
 }
